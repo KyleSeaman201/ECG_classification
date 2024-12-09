@@ -1,0 +1,23 @@
+name: ecg_classification
+channels:
+ - pytorch
+ - nvidia
+ - conda-forge
+ - defaults
+dependencies:
+  - python==3.10.13
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - openjdk=11
+  - pyspark=3.5.1
+  - findspark
+  - pytorch
+  - torchvision
+  - torchaudio
+  - qt6-wayland
+  - pip
+  - pip:
+    - pyarrow
+    - requests

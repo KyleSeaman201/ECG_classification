@@ -1,0 +1,6 @@
+*/__pycache__/
+data/mitbih/
+data/ptbdb/
+plots/images/
+models/saved_models
+*.pth

@@ -1,0 +1,95 @@
+# paths to data location
+data_dir:
+  # path to root node of code
+  data_root: "data"
+
+  # mitbih data directory
+  data_mitbih: "mitbih"
+
+  # ptbdb
+  data_ptbdb: "ptbdb"
+
+  # parquet directory
+  # will follow where each data is such as <root>/data/[mitbih or ptbdb]/parquet
+  data_parquet: "parquet"
+
+  # dataloader workers
+  data_workers: 8
+
+# paths to model location
+model_dir:
+  model_root: "models"
+  saved_models: "saved_models"
+
+# mitbih files
+data_mitbih_files:
+  train: "mitbih_train.csv"
+  test: "mitbih_test.csv"
+  num_classes: 5
+
+# ptbdb files
+data_ptbdb_files:
+  abnormal: "ptbdb_abnormal.csv"
+  normal: "ptbdb_normal.csv"
+  num_classes: 2
+
+# 1d_cnn
+1d_cnn:
+  learning_rate: .1
+  weight_decay: .0001
+  batch_size: 16
+  epochs: 150
+  dropout: 0.1
+
+# 1d_optimizer
+1d_cnn_optim:
+  beta_1: 0.9
+  beta_2: 0.999
+  warm_up: 4000
+
+# 2d cnn
+2d_cnn:
+  learning_rate: .001
+  weight_decay: .00001
+  batch_size: 16
+  epochs: 30
+  dropout: 0.2
+
+n_head: 8
+n_layers: 8
+d_hid: 64
+d_model: 128
+d_proj: 10
+n_conv: 4       # this would be different if HITs dataset is used
+n_filters: 32 # initial filters is for both ptbh and bih datasets; HITs dataset has different
+
+hybrid_mitbih:
+  learning_rate: .0003
+
+hybrid_ptbdb:
+  learning_rate: .001
+
+hybrid:
+  weight_decay: .01
+  batch_size: 16
+  epochs: 10
+ 
+pyspark:
+  app_name: "data processing"
+  num_cores: 4
+  mode: "local"
+  executor_memory: 4g
+  driver_memory: 1g
+  spark_conf_cache_dir: "cache"
+
+# class maps for the two datasets
+mitbih_class_map:
+  'N' : 0
+  'S' : 1
+  'V' : 2
+  'F' : 3
+  'Q' : 4
+
+ptbdb_class_map:
+  'N' : 0
+  'A' : 1
